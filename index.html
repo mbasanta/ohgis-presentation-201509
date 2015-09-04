@@ -89,7 +89,6 @@
           <ul>
             <li>Combines existing geoprocessing tools</li>
             <li>Can incorporate scripts and nested models</li>
-            <li>Python functionality</li>
             <li>Ideal for routine task automation</li>
           </ul>
         </div>
@@ -104,6 +103,7 @@
           <ul>
             <li>ArcCatalog is all you need!</li>
             <li>Automate one of your routine task</li>
+            <li>Good for simple tasks</li>
             <li>Export as a Python script and schedule</li>
           </ul>
         </div>
@@ -111,15 +111,31 @@
       </section>
       <section>
         <div class="slidebg"></div>
-        <div class="title">
+        <div class="title top">
           Model Builder Example
+          <div class="subtitle">A Good One</div>
         </div>
         <div class="content">
-          <ul>
-            <li>ASDF</li>
-          </ul>
+          <img class="good-modelbuilder" alt="Good Model Builder Example" src="images/good-modelbuilder.png"/>
         </div>
         <img class="stantec-logo" alt="stantec-logo" src="images/stantec-logo.png"/>
+      </section>
+      <section>
+        <div class="slidebg"></div>
+        <div class="title top">
+          Model Builder Example
+          <div class="subtitle">A Bad One</div>
+        </div>
+        <div class="content">
+          <img class="bad-dog" alt="Bad Dog" src="images/bad-dog.gif"/>
+        </div>
+        <img class="stantec-logo" alt="stantec-logo" src="images/stantec-logo.png"/>
+      </section>
+      <section>
+        <div class="slidebg"></div>
+        <div class="content">
+          <img class="full-screenshot" alt="Bad Model Builder Example" src="images/bad-modelbuilder.png"/>
+        </div>
       </section>
       <section>
         <div class="slidebg"></div>
@@ -128,10 +144,11 @@
         </div>
         <div class="content">
           <ul>
-            <li>Follows basic business rules</li>
-            <li>Utilizes plugin architecture</li>
-            <li>Features added with each release</li>
-            <li>Ideal for...</li>
+            <li>Utilize all geoprocessing tools</li>
+            <li>Utilize much of the ArcObjects library</li>
+            <li>Utilize ALL of the Python framework</li>
+            <li>Low threshold to entry</li>
+            <li>Very powerful with experience</li>
           </ul>
         </div>
         <img class="stantec-logo" alt="stantec-logo" src="images/stantec-logo.png"/>
@@ -158,6 +175,7 @@
         <div class="content">
           <ul>
             <li>Monitor Instrumentation</li>
+            <li>View real time subsurface profiles</li>
           </ul>
         </div>
         <img class="stantec-logo" alt="stantec-logo" src="images/stantec-logo.png"/>
@@ -193,15 +211,62 @@
       <section>
         <div class="slidebg"></div>
         <div class="title">
-          The Code
+          Show me the Code!
         </div>
         <div class="content">
-          <pre>
-            <code class="language-python">
-                if true:
-                  return
-            </code>
-          </pre>
+          <ul>
+            <li>Mixture of Python and Psuedo-code</li>
+            <li>Tryin' to keep it simple</li>
+            <li>Website sends the line verticies to the server as 2-d array</li>
+          </ul>
+          <pre><code class="language-python">in_src = '[
+  [822.7,311.5],[772.5,142.5],...
+]'</code></pre>
+        </div>
+        <img class="stantec-logo" alt="stantec-logo" src="images/stantec-logo.png"/>
+      </section>
+      <section>
+        <div class="slidebg"></div>
+        <div class="title">
+          Create the Polyline
+        </div>
+        <div class="content">
+          <pre><code class="language-python">in_rows = json.loads(in_src)
+arcpy.CreateFeatureClass(WORKSPACE, PROFILE,  ...)
+for row in in_rows:
+    point.X = row[0]
+    point.Y = row[1]
+    array.add(point)
+polyline = arcpy.Polyline(array)
+feat.shape = polyline</code></pre>
+        </div>
+        <img class="stantec-logo" alt="stantec-logo" src="images/stantec-logo.png"/>
+      </section>
+      <section>
+        <div class="slidebg"></div>
+        <div class="title">
+          Create the Profile
+        </div>
+        <div class="content">
+          <pre><code class="language-python">profile_dbf = os.path.join(WORKSPACE, "profile.dbf")
+arcpy.CheckOutExtension('3D')
+arcpy.StackProfile_3d(PROFILE, SURFACE, profile_dbf)
+arcpy.CheckInExtension('3D')</code></pre>
+        </div>
+        <img class="stantec-logo" alt="stantec-logo" src="images/stantec-logo.png"/>
+      </section>
+      <section>
+        <div class="slidebg"></div>
+        <div class="title">
+          Create the Profile Points
+        </div>
+        <div class="content">
+          <p>Another 2-d Array</p>
+          <pre><code class="language-python">with DBF(profile_dbf) as table:
+    for row in table:
+        data_pt = [row['X'], row['Y1'], row['Y2']]
+        profile_data.append(data_pt)
+json.dumps(profile_data)</code></pre>
         </div>
         <img class="stantec-logo" alt="stantec-logo" src="images/stantec-logo.png"/>
       </section>
