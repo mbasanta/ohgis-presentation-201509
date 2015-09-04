@@ -193,6 +193,68 @@
       <section>
         <div class="slidebg"></div>
         <div class="title">
+          Show me the Code!
+        </div>
+        <div class="content">
+          <ul>
+            <li>Mixture of Python and Psuedo-code</li>
+            <li>Tryin' to keep it simple</li>
+            <li>Website sends the line verticies to the server as 2-d array</li>
+          </ul>
+          <pre><code class="language-python">in_src = '[
+  [822.7,311.5],[772.5,142.5],...
+]'</code></pre>
+        </div>
+        <img class="stantec-logo" alt="stantec-logo" src="images/stantec-logo.png"/>
+      </section>
+      <section>
+        <div class="slidebg"></div>
+        <div class="title">
+          Create the Polyline
+        </div>
+        <div class="content">
+          <pre><code class="language-python">in_rows = json.loads(in_src)
+arcpy.CreateFeatureClass(WORKSPACE, PROFILE,  ...)
+for row in in_rows:
+    point.X = row[0]
+    point.Y = row[1]
+    array.add(point)
+polyline = arcpy.Polyline(array)
+feat.shape = polyline</code></pre>
+        </div>
+        <img class="stantec-logo" alt="stantec-logo" src="images/stantec-logo.png"/>
+      </section>
+      <section>
+        <div class="slidebg"></div>
+        <div class="title">
+          Create the Profile
+        </div>
+        <div class="content">
+          <pre><code class="language-python">profile_dbf = os.path.join(WORKSPACE, "profile.dbf")
+arcpy.CheckOutExtension('3D')
+arcpy.StackProfile_3d(PROFILE, SURFACE, profile_dbf)
+arcpy.CheckInExtension('3D')</code></pre>
+        </div>
+        <img class="stantec-logo" alt="stantec-logo" src="images/stantec-logo.png"/>
+      </section>
+      <section>
+        <div class="slidebg"></div>
+        <div class="title">
+          Create the Profile Points
+        </div>
+        <div class="content">
+          <p>Another 2-d Array</p>
+          <pre><code class="language-python">with DBF(profile_dbf) as table:
+    for row in table:
+        data_pt = [row['X'], row['Y1'], row['Y2']]
+        profile_data.append(data_pt)
+json.dumps(profile_data)</code></pre>
+        </div>
+        <img class="stantec-logo" alt="stantec-logo" src="images/stantec-logo.png"/>
+      </section>
+      <section>
+        <div class="slidebg"></div>
+        <div class="title">
           .NET
         </div>
         <div class="content">
