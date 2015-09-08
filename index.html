@@ -219,7 +219,7 @@
             <li>Tryin' to keep it simple</li>
             <li>Website sends the line verticies to the server as 2-d array</li>
           </ul>
-          <pre><code class="language-python">in_src = '[
+          <pre><code class="language-python smaller">in_src = '[
   [822.7,311.5],[772.5,142.5],...
 ]'</code></pre>
         </div>
@@ -231,7 +231,7 @@
           Create the Polyline
         </div>
         <div class="content">
-          <pre><code class="language-python">in_rows = json.loads(in_src)
+          <pre><code class="language-python smaller">in_rows = json.loads(in_src)
 arcpy.CreateFeatureClass(WORKSPACE, PROFILE,  ...)
 for row in in_rows:
     point.X = row[0]
@@ -248,7 +248,7 @@ feat.shape = polyline</code></pre>
           Create the Profile
         </div>
         <div class="content">
-          <pre><code class="language-python">profile_dbf = os.path.join(WORKSPACE, "profile.dbf")
+          <pre><code class="language-python smaller">profile_dbf = os.path.join(WORKSPACE, "profile.dbf")
 arcpy.CheckOutExtension('3D')
 arcpy.StackProfile_3d(PROFILE, SURFACE, profile_dbf)
 arcpy.CheckInExtension('3D')</code></pre>
@@ -262,7 +262,7 @@ arcpy.CheckInExtension('3D')</code></pre>
         </div>
         <div class="content">
           <p>Another 2-d Array</p>
-          <pre><code class="language-python">with DBF(profile_dbf) as table:
+          <pre><code class="language-python smaller">with DBF(profile_dbf) as table:
     for row in table:
         data_pt = [row['X'], row['Y1'], row['Y2']]
         profile_data.append(data_pt)
@@ -273,15 +273,34 @@ json.dumps(profile_data)</code></pre>
       <section>
         <div class="slidebg"></div>
         <div class="title">
-          .NET
+          ArcObjects/Runtime SDK
         </div>
-        <div class="content">
-          <ul>
-            <li>Very capable, can access all of ArcObjects</li>
-            <li>More difficult debugging, logging, &amp; error handling</li>
-            <li>Easy to upgrade from VBA</li>
-            <li>Ideal for...</li>
-          </ul>
+        <div class="content left-align">
+          <p>More focused on stand alone applications. Python can handle most
+          ArcMap AddIns now.</p>
+          <div class="columns two">
+            <div class="column left">
+              <h4>ArcObjects</h4>
+              <h4>Old and Broke</h4>
+              <br />
+              <ul class="smaller bullets">
+                <li>Older .NET/Java/C++</li>
+                <li>Convoluted API</li>
+                <li>More difficult debugging, logging, &amp; error handling</li>
+                <li>Easy to upgrade from VBA</li>
+              </ul>
+            </div>
+            <div class="column right">
+              <h4>Runtime SDK</h4>
+              <h4>New Hotness</h4>
+              <br />
+              <ul class="smaller bullets">
+                <li>Java/WPF (And More)</li>
+                <li>Sleeker and Purpose Built</li>
+                <li>The Future</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <img class="stantec-logo" alt="stantec-logo" src="images/stantec-logo.png"/>
       </section>
@@ -290,22 +309,60 @@ json.dumps(profile_data)</code></pre>
         <div class="title">
           Getting Started with .NET
         </div>
-        <div class="content">
-          <ul>
-            <li>ASDF</li>
-          </ul>
+        <div class="content left-align">
+          <p>With Great Power Comes Great Responsiblity</p>
+          <div class="columns two">
+            <div class="column left">
+              <h4>ArcObjects</h4>
+              <br />
+              <ul class="smaller bullets">
+                <li>Visual Studio 2010 (Old, Old, Old)</li>
+                <li>No Supported Free Version</li>
+                <li>Very Developer-Centric Documentation</li>
+              </ul>
+            </div>
+            <div class="column right">
+              <h4>Runtime SDK</h4>
+              <br />
+              <ul class="smaller bullets">
+                <li>VS 2012/2013 (Probably 2015)</li>
+                <li>VS Community Edition is Free (and feature packed)</li>
+                <li>Lots of Tutorials <a href="http://developers.arcgis.com">http://developers.arcgis.com</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
         <img class="stantec-logo" alt="stantec-logo" src="images/stantec-logo.png"/>
       </section>
       <section>
         <div class="slidebg"></div>
         <div class="title">
-          .NET Example
+          .NET Examples
         </div>
         <div class="content">
           <ul>
-            <li>ASDF</li>
+            <li>MapBooks (Data Driven Pages)</li>
           </ul>
+        </div>
+        <img class="stantec-logo" alt="stantec-logo" src="images/stantec-logo.png"/>
+      </section>
+      <section>
+        <div class="slidebg"></div>
+        <div class="title top more">
+          Sign Inventory Tool
+        </div>
+        <div class="content">
+          <img class="waco-toolbar" alt="Sign Inventory Tool" src="images/WaCo_toolbar.jpg"/>
+          <img class="waco-dialog" alt="Sign Inventory Tool" src="images/WaCo_dialog.jpg"/>
+        </div>
+        <img class="stantec-logo" alt="stantec-logo" src="images/stantec-logo.png"/>
+      </section>
+      <section>
+        <div class="slidebg"></div>
+        <div class="title top more">
+          QR5 Inspector
+        </div>
+        <div class="content">
         </div>
         <img class="stantec-logo" alt="stantec-logo" src="images/stantec-logo.png"/>
       </section>
@@ -319,8 +376,8 @@ json.dumps(profile_data)</code></pre>
         </div>
         <div class="content">
           <ul>
-            <li>Matthew.Basanta@Stantec.com</li>
-            <li>Nicholas.Soltes@Stantec.com</li>
+            <li>matthew.basanta@stantec.com</li>
+            <li>nicholas.soltes@stantec.com</li>
           </ul>
         </div>
         <img class="stantec-logo" alt="stantec-logo" src="images/stantec-white-logo.png"/>
