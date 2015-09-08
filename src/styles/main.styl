@@ -144,19 +144,17 @@ img.bad-dog
   margin-left -175px
   margin-top -60px
 
-/* img.questions */
-/*   height 250px */
-/*   width 250px */
-/*   left 50% */
-/*   top 50% */
-/*   margin-left -125px */
-/*   margin-top -150px */
-
 .bespoke-bullet-inactive
   visibility hidden
 
 .smaller
   font-size 0.8em
+
+code
+  display block // fixes flexbox rendering on safari
+
+code.smaller
+  font-size smaller
 
 .full-screenshot
   position absolute
@@ -169,3 +167,14 @@ img.bad-dog
   max-height 100%
   max-width 100%
 
+.two-columns
+  column-count 2
+
+.columns.two .column
+  width 50%
+
+.columns.two .column.left
+  float left
+
+.columns.two .column.right
+  float right
